@@ -49,22 +49,27 @@ class LoginController extends Controller
         ]);
 
         $user_details = User::where('email', $request->email)->first();
+
         if (isset($user_details->id)) {
             // Attempt to log the user in
             if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password, 'role' => 1], $request->remember)) {
-                // if successful, then redirect to their intended location
+                // If successful, then redirect to their intended location
                 return redirect()->route('admin.dashboard');
+            } else {
+                // If authentication fails, redirect back with an error message
+                return redirect()->back()->with('error', 'Invalid email or password.')->withErrors(['password' => 'Invalid password']);
             }
+        } else {
+            // If the user is not found, redirect back with an error message
+            return redirect()->back()->with('error', 'Invalid email or password.')->withErrors(['email' => 'Invalid email']);
         }
-
-        $invalid = 'Invalid email or password.';
-        // if unsuccessful, then redirect back to the login with the form data
-        return redirect()->back()->withInput($request->only('email', 'remember', 'invalid'))->withErrors('Invalid username or password');
     }
 
-    public function logout()
+    public function logout() 
     {
         Auth::guard('admin')->logout();
         return redirect()->route('admin.home');
     }
+
+
 }

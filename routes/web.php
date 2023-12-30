@@ -47,7 +47,7 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin'], function () {
      Route::get('/edit-customer/{id}', [CustomerController::class, 'edit_customer'])->name('admin.edit_user');
      Route::get('/delete-customer/{id}', [CustomerController::class, 'delete_customer'])->name('admin.delete_user');
 
-    //News
+    //Users
     Route::get('/users', [UserController::class, 'index'])->name('admin.news');
     Route::get('/user-create', [UserController::class, 'user_create'])->name('admin.user_create');  
 
@@ -57,6 +57,7 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin'], function () {
 
 Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
 
 
 

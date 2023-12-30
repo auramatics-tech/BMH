@@ -3,7 +3,7 @@
     <div class="brand flex-column-auto" id="kt_brand">
         <!--begin::Logo-->
         <a href="" class="brand-logo">
-            <img alt="Logo" src="{{ asset('punjab-logo.png') }}" height="50" width="100%" />
+            <img alt="Logo" src="{{ asset('assets/images/bmh-logo.png') }}" height="50" width="100%" />
         </a>
         <!--end::Logo-->
         <!--begin::Toggle-->
@@ -43,7 +43,7 @@
                             </svg>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-text">Dashboard</span>
+                        <span class="menu-text">Dashboard</span> 
                     </a>
                 </li>
                 <li class="menu-item  @if (Route::is('admin.customers')=='admin.customers'

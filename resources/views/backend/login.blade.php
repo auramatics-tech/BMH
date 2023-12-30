@@ -14,6 +14,18 @@
             <!--end::Login Header-->
             <!--begin::Login Sign in form-->
             <div class="login-signin">
+                @if(Session::has('success'))
+                <div class="alert alert-success text-center">
+                    {{Session::get('success')}}
+                </div>
+                @endif
+
+                @if(Session::has('error'))
+                <div class="alert alert-danger text-center">
+                    {{ Session::get('error') }}
+                </div>  
+                @endif
+
                 <div class="mb-20">
                     <h3>Sign In To BMH</h3>
                     <div class="text-muted font-weight-bold">Enter your details to login to your account:</div>
@@ -37,7 +49,7 @@
                                 <input type="checkbox" name="remember" />
                                 <span></span>Remember me</label>
                         </div>
-                        <a href="javascript:;" id="kt_login_forgot" class="text-muted text-hover-primary">Forget
+                        <a href="{{ route('password.request') }}" id="kt_login_forgot" class="text-muted text-hover-primary">Forget
                             Password ?</a>
                     </div>
                     <button type="submit" id="kt_login_signin_submit" class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4">Sign In</button>
