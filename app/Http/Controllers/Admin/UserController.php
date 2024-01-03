@@ -11,17 +11,14 @@ class UserController extends Controller
 
     public function index()
     {
-     
-        return view('backend.user.index');                                                               
+
+        return view('backend.user.index');
     }
 
     public function user_create()
     {
 
-        return view('backend.user.create');                                                               
+        return view('backend.user.create');
     }
-
-
-  
 
 }
