@@ -41,7 +41,7 @@ class AuthController extends BaseController
         $credentials = $request->only('email', 'password'); 
 
         if (Auth::attempt($credentials)) {
-            $user = Auth::user();
+            $user = User::with('getAllServices')->where('id',Auth::id())->first();
     
             if ($user->role == 2) {
                 // If user role is 2, update role and generate access token

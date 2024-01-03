@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Services;
+use App\Models\UserService;
 use Hash;
 use Auth;
 
@@ -35,7 +36,7 @@ class CustomerController extends Controller
 
             'name' => 'required',
             'email' => 'required',
-            'mobile_no' => 'required',
+            'mobile_no' => 'required', 
 
         ];
 
@@ -65,6 +66,20 @@ class CustomerController extends Controller
             $data->password = Hash::make($request->password);
         }
         $data->save();
+
+        $delete_services = UserService::where('user_id',$data->id)->delete();
+
+        if (isset($request->service)) {
+            foreach ($request->service as $key => $service) {
+                $user_services = new UserService();
+                $user_services->service_id = $service;
+                $user_services->user_id = $data->id;
+                $user_services->s_username = isset( $request->s_username[$service]) ?  $request->s_username[$service] : NULL;
+                $user_services->s_password = isset($request->s_password[$service]) ? $request->s_password[$service] : NUll;
+                $user_services->save();
+            }
+        }
+
         return redirect()->route('admin.customers')->with('success', $msg);
     }
 
@@ -72,7 +87,8 @@ class CustomerController extends Controller
     {
         $data = User::Find($id);
         $services = Services::all();
-        return view('backend.customer.create', compact('data','services'));
+        $user_services = UserService::where('user_id',$id)->get();
+        return view('backend.customer.create', compact('data','services','user_services'));
     }
 
 
