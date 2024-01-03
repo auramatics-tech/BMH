@@ -22,7 +22,7 @@ class CustomerController extends Controller
 
     public function create()
     {
-        $data = User::all();
+        $data = User::all(); 
         $services = Services::all();
         return view('backend.customer.create',compact('data','services'));
     }

@@ -90,10 +90,10 @@
                                 <div class="col-md-4">
                                     @foreach ($services as $service)
                                     <div class="checkbox-container">
-                                        <input type="checkbox" @if($user_services->contains('service_id', $service->id)) checked @endif name="service[]" class="service-checkbox" value="{{ $service->id }}">
+                                        <input type="checkbox" @if(isset($user_services) && $user_services->contains('service_id', $service->id)) checked @endif name="service[]" class="service-checkbox" value="{{ $service->id }}">
                                         {{ $service->name}}<br>
                                         <div class="additional-fields" id="additional-fields-{{ $service->id }}">
-                                            @if($user_services->contains('service_id', $service->id))
+                                            @if(isset($user_services) && $user_services->contains('service_id', $service->id))
                                             @php
                                                 $matchingService = $user_services->where('service_id', $service->id)->first();
                                             @endphp
