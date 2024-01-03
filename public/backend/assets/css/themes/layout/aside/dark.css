@@ -1,5 +1,5 @@
 .aside {
-  background-color: #1e1e2d;
+  background-color: #fff;
 }
 .aside .aside-menu.ps > .ps__rail-x {
   background-color: transparent;
@@ -39,7 +39,7 @@
 }
 
 .aside-menu {
-  background-color: #1e1e2d;
+  background-color: #fff;
 }
 .aside-menu .menu-nav > .menu-item > .menu-heading .menu-text,
 .aside-menu .menu-nav > .menu-item > .menu-link .menu-text {
@@ -147,7 +147,8 @@
 }
 .aside-menu .menu-nav > .menu-item.menu-item-active > .menu-heading,
 .aside-menu .menu-nav > .menu-item.menu-item-active > .menu-link {
-  background-color: #1b1b28;
+  border-radius: var(--12, 12px);
+background: #306BFF;
 }
 .aside-menu .menu-nav > .menu-item.menu-item-active > .menu-heading .menu-text,
 .aside-menu .menu-nav > .menu-item.menu-item-active > .menu-link .menu-text {
