@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Services;
 use Hash;
 use Auth;
+
 
 class CustomerController extends Controller
 {
@@ -14,13 +16,14 @@ class CustomerController extends Controller
     public function index()
     {
         $data = User:: where('role' , 2)->get();
-        return view('backend.customer.index',compact('data'));                                                               
+        return view('backend.customer.index',compact('data'));
     }
 
     public function create()
     {
         $data = User::all();
-        return view('backend.customer.create',compact('data'));                                                               
+        $services = Services::all();
+        return view('backend.customer.create',compact('data','services'));
     }
 
 
@@ -68,7 +71,8 @@ class CustomerController extends Controller
     public function edit_customer($id)
     {
         $data = User::Find($id);
-        return view('backend.customer.create', compact('data'));
+        $services = Services::all();
+        return view('backend.customer.create', compact('data','services'));
     }
 
 
