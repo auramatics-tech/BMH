@@ -18,9 +18,11 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/get-all-services', [AuthController::class, 'get_all_services']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    
 
     return $request->user();
 });

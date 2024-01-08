@@ -51,11 +51,11 @@
                             </svg>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-text text-span">Live</span>
+                        <span class="menu-text text-span">Customer Management</span>
                     </a>
                 </li>
-                <li class="menu-item mt-3 left-text @if (Route::is('admin.customers')=='admin.customers'
-                    ) menu-item-active @endif" aria-haspopup="true" style="">
+                <li class="menu-item mt-3 left-text 
+                    )" aria-haspopup="true" style="">
                     <a href="{{route('admin.customers')}}" class="menu-link">
                         <div class="menu-left">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -71,9 +71,9 @@
                         <span class="menu-text text-span">Evidence</span>
                     </a>
                 </li>
-                <li class="menu-item mt-3 left-text @if (Route::is('admin.customers')=='admin.customers'
-                    ) menu-item-active @endif" aria-haspopup="true" style="">
-                    <a href="{{route('admin.customers')}}" class="menu-link">
+                <li class="menu-item mt-3 left-text 
+                    ) " aria-haspopup="true" style="">  
+                    <a href="" class="menu-link">
                         <div class="menu-left">
                          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M8.04615 16.6377C7.76229 16.3774 7.76229 15.9553 8.04615 15.6949L12.8333 11.3044C13.1171 11.0441 13.1171 10.622 12.8333 10.3616L8.04615 5.97108C7.76229 5.71073 7.76229 5.28862 8.04615 5.02827C8.33002 4.76792 8.79026 4.76792 9.07412 5.02827L13.8612 9.41879C14.7128 10.1998 14.7128 11.4662 13.8612 12.2472L9.07412 16.6377C8.79025 16.8981 8.33002 16.8981 8.04615 16.6377Z" fill="#ADB5BD" />
@@ -88,9 +88,9 @@
                         <span class="menu-text text-span">Reports</span>
                     </a>
                 </li>
-                <li class="menu-item mt-3 left-text @if (Route::is('admin.customers')=='admin.customers'
-                    ) menu-item-active @endif" aria-haspopup="true" style="">
-                    <a href="{{route('admin.customers')}}" class="menu-link ">
+                <li class="menu-item mt-3 left-text 
+                    )" aria-haspopup="true" style="">
+                    <a href="" class="menu-link ">
                         <div class="menu-left">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" class="">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.04615 16.6377C7.76229 16.3774 7.76229 15.9553 8.04615 15.6949L12.8333 11.3044C13.1171 11.0441 13.1171 10.622 12.8333 10.3616L8.04615 5.97108C7.76229 5.71073 7.76229 5.28862 8.04615 5.02827C8.33002 4.76792 8.79026 4.76792 9.07412 5.02827L13.8612 9.41879C14.7128 10.1998 14.7128 11.4662 13.8612 12.2472L9.07412 16.6377C8.79025 16.8981 8.33002 16.8981 8.04615 16.6377Z" fill="#ADB5BD" />

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use DB;
 
 class User extends Authenticatable
 {
@@ -45,6 +46,6 @@ class User extends Authenticatable
 
     public function getAllServices() {
 
-        return $this->hasMany(UserService::class, 'user_id','id'); 
+        return $this->hasMany(UserService::class, 'user_id','id')->select('user_services.*',DB::Raw('(select services.name from services where services.id = user_services.service_id limit 1) as service_name')); 
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Api\BaseController as BaseController;
+use App\Models\Services;
 use Illuminate\Http\Request;
 use Validator;
 use Hash;
@@ -61,4 +62,11 @@ class AuthController extends BaseController
 
         return $this->sendError('Unauthorized.');  
     }
+
+      public function get_all_services(){
+
+        $services = Services::all();
+        return $this->sendResponse($services, __('api.all services'));
+
+     }
 }
