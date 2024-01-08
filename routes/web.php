@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PrivacyController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Admin\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,29 +28,33 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin'], function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
-    
+
    // admin edit profile
-    
+
    Route::get('/profile', [AdminController::class, 'index'])->name('admin.profile');
-   Route::post('change-password', [AdminController::class, 'change_password'])->name('admin.change_password'); 
+   Route::post('change-password', [AdminController::class, 'change_password'])->name('admin.change_password');
 
      //admin.terms
      Route::get('/privacy', [PrivacyController::class, 'index'])->name('admin.privacy');
      Route::get('/terms', [PrivacyController::class, 'terms'])->name('admin.terms');
      Route::post('/privacy-store', [PrivacyController::class, 'store_privacy'])->name('admin.store_privacy');
-     Route::post('/terms-store', [PrivacyController::class, 'store_terms'])->name('admin.store_terms'); 
+     Route::post('/terms-store', [PrivacyController::class, 'store_terms'])->name('admin.store_terms');
 
 
      //customers
-     Route::get('/customers', [CustomerController::class, 'index'])->name('admin.customers'); 
-     Route::get('/create', [CustomerController::class, 'create'])->name('admin.create'); 
+     Route::get('/customers', [CustomerController::class, 'index'])->name('admin.customers');
+     Route::get('/create', [CustomerController::class, 'create'])->name('admin.create');
      Route::post('/save-customer', [CustomerController::class, 'save_customer'])->name('admin.save_user');
      Route::get('/edit-customer/{id}', [CustomerController::class, 'edit_customer'])->name('admin.edit_user');
      Route::get('/delete-customer/{id}', [CustomerController::class, 'delete_customer'])->name('admin.delete_user');
 
     //Users
     Route::get('/users', [UserController::class, 'index'])->name('admin.news');
-    Route::get('/user-create', [UserController::class, 'user_create'])->name('admin.user_create');  
+    Route::get('/user-create', [UserController::class, 'user_create'])->name('admin.user_create');
+
+    //Setting
+    Route::get('/setting', [SettingController::class, 'create'])->name('admin.setting');
+    Route::post('/save-setting', [SettingController::class, 'save_setting'])->name('admin.save_setting');
 
 });
 
@@ -57,7 +62,3 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin'], function () {
 
 Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
-
-
-

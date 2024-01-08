@@ -16,13 +16,13 @@ class CustomerController extends Controller
 
     public function index()
     {
-        $data = User:: where('role' , 2)->get();
+        $data = User:: where('role' , 2)->orderBy('id','desc')->get();
         return view('backend.customer.index',compact('data'));
     }
 
     public function create()
     {
-        $data = User::all(); 
+        $data = User::all();
         $services = Services::all();
         return view('backend.customer.create',compact('data','services'));
     }
@@ -36,7 +36,7 @@ class CustomerController extends Controller
 
             'name' => 'required',
             'email' => 'required',
-            'mobile_no' => 'required', 
+            'mobile_no' => 'required',
 
         ];
 
@@ -71,11 +71,16 @@ class CustomerController extends Controller
 
         if (isset($request->service)) {
             foreach ($request->service as $key => $service) {
+
+
                 $user_services = new UserService();
                 $user_services->service_id = $service;
                 $user_services->user_id = $data->id;
                 $user_services->s_username = isset( $request->s_username[$service]) ?  $request->s_username[$service] : NULL;
                 $user_services->s_password = isset($request->s_password[$service]) ? $request->s_password[$service] : NUll;
+                $user_services->s_api_key = isset($request->s_api_key[$service]) ? $request->s_api_key[$service] : NUll;
+                $user_services->alarm = isset($request->alarm[$service]) ? $request->alarm[$service] : 0;
+                $user_services->tracking = isset($request->tracking[$service]) ? $request->tracking[$service] : 0;
                 $user_services->save();
             }
         }

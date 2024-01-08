@@ -54,7 +54,7 @@
                         <span class="menu-text text-span">Customer Management</span>
                     </a>
                 </li>
-                <li class="menu-item mt-3 left-text 
+                <li class="menu-item mt-3 left-text
                     )" aria-haspopup="true" style="">
                     <a href="{{route('admin.customers')}}" class="menu-link">
                         <div class="menu-left">
@@ -71,8 +71,8 @@
                         <span class="menu-text text-span">Evidence</span>
                     </a>
                 </li>
-                <li class="menu-item mt-3 left-text 
-                    ) " aria-haspopup="true" style="">  
+                <li class="menu-item mt-3 left-text
+                    ) " aria-haspopup="true" style="">
                     <a href="" class="menu-link">
                         <div class="menu-left">
                          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -88,7 +88,7 @@
                         <span class="menu-text text-span">Reports</span>
                     </a>
                 </li>
-                <li class="menu-item mt-3 left-text 
+                <li class="menu-item mt-3 left-text
                     )" aria-haspopup="true" style="">
                     <a href="" class="menu-link ">
                         <div class="menu-left">
@@ -104,6 +104,21 @@
                             <!--end::Svg Icon-->
                         </span>
                         <span class="menu-text text-span">Geofence</span>
+                    </a>
+                </li>
+                <li class="menu-item mt-3 @if (Route::is('admin.setting')=='admin.setting'
+                    ) menu-item-active @endif" aria-haspopup="true">
+                    <a href="{{route('admin.setting')}}" class="menu-link">
+                        <span class="svg-icon menu-icon">
+                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.61905 15.5711C13.8269 15.5711 17.2381 12.1599 17.2381 7.95205C17.2381 3.74417 13.8269 0.333008 9.61905 0.333008C5.41116 0.333008 2 3.74417 2 7.95205C2 12.1599 5.41116 15.5711 9.61905 15.5711ZM9.76191 12.714C12.3918 12.714 14.5238 10.582 14.5238 7.95205C14.5238 5.32213 12.3918 3.19015 9.76191 3.19015C7.13199 3.19015 5.00001 5.32213 5.00001 7.95205C5.00001 10.582 7.13199 12.714 9.76191 12.714Z" fill="#878A99" />
+                                <circle cx="10" cy="7.83301" r="2.5" fill="#878A99" />
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.3628 14.7961C14.6489 16.455 12.3137 17.4758 9.74012 17.4758C7.2987 17.4758 5.07185 16.5571 3.38637 15.0466L1.56121 16.9478C0.340831 18.2191 1.24179 20.3329 3.00399 20.3329H17.1555C18.9563 20.3329 19.8398 18.1394 18.5417 16.8912L16.3628 14.7961Z" fill="#878A99" />
+                            </svg>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-text text-span">Setting</span>
                     </a>
                 </li>
 
